@@ -1,0 +1,120 @@
+{
+  "loginUsers": [
+    {
+      "id": 1,
+      "firstname": "Koti",
+      "lastname": "Kallam",
+      "email": "kk@gmail.com",
+      "phone": "111-222-3333",
+      "username": "kk123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "firstname": "Vennela",
+      "lastname": "Banala",
+      "email": "vbk@gmail.com",
+      "phone": "222-333-4444",
+      "username": "vb123",
+      "role": "admin"
+    },
+    {
+      "id": 3,
+      "firstname": "Saanvi",
+      "lastname": "Kallam",
+      "email": "sk@gmail.com",
+      "phone": "333-444-5555",
+      "username": "sk123",
+      "role": "moderator"
+    },
+    {
+      "id": 4,
+      "firstname": "Abhiram",
+      "lastname": "Kallam",
+      "email": "vbk@gmail.com",
+      "phone": "444-555-6666",
+      "username": "ak123",
+      "role": "moderator"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "subscription": [
+    {
+      "subId": "LTS_SUB_BEGINER",
+      "name": "BEGINER",
+      "price": 50.00
+    },
+    {
+      "subId": "LTS_SUB_MODERATOR",
+      "name": "MODERATOR",
+      "price": 100.00
+    },
+    {
+      "subId": "LTS_SUB_ADVANCED",
+      "name": "ADVANCED",
+      "price": 150.00
+    }
+  ],
+  "companies": [
+    {
+      "id": "C1221",
+      "name": "Intellisoft Technologies",
+      "Address": "Irving, TX",
+      "subscriptionType": "LTS_SUB_MODERATOR",
+      "subStartDate": "01/01/2023",
+      "subEndDate": "12/31/2023",
+      "autoRenewal": "Yes"
+    },
+    {
+      "id": "C1222",
+      "name": "Tekzenit Inc",
+      "Address": "Irving, TX",
+      "subscriptionType": "LTS_SUB_ADVANCED",
+      "subStartDate": "02/01/2023",
+      "subEndDate": "01/31/2023",
+      "autoRenewal": "Yes"
+    },
+    {
+      "id": "C1223",
+      "name": "At&t",
+      "Address": "Plano, TX",
+      "subscriptionType": "LTS_SUB_ADVANCED",
+      "subStartDate": "01/01/2023",
+      "subEndDate": "12/31/2024",
+      "autoRenewal": "Yes"
+    },
+    {
+      "id": "C1224",
+      "name": "Verizon",
+      "Address": "Irving, TX",
+      "subscriptionType": "LTS_SUB_ADVANCED",
+      "subStartDate": "01/01/2023",
+      "subEndDate": "12/31/2025",
+      "autoRenewal": "Yes"
+    },
+    {
+      "id": "C1225",
+      "name": "Pepsi Co",
+      "Address": "Frisco, TX",
+      "subscriptionType": "LTS_SUB_ADVANCED",
+      "subStartDate": "01/01/2023",
+      "subEndDate": "12/31/2023",
+      "autoRenewal": "No"
+    },
+    {
+      "id": "C1226",
+      "name": "Boys Scouts of America",
+      "Address": "Irving, TX",
+      "subscriptionType": "LTS_SUB_BEGINER",
+      "subStartDate": "01/01/2023",
+      "subEndDate": "12/31/2024",
+      "autoRenewal": "No"
+    }
+  ]
+}

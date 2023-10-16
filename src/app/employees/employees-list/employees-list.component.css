@@ -1,0 +1,23 @@
+.table {
+    width: 100%;
+    padding-bottom: 20px;
+}
+.employees-list {
+    margin-top: 15px;
+    color: rgb(16, 16, 15);
+    
+}
+.ngx-datatable {
+    color: #3b3838;
+}
+.table thead th{
+    background-color: rgb(23, 71, 85) !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.table thead th:nth-last-child(){
+    text-align: center;
+}

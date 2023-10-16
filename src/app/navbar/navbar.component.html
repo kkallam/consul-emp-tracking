@@ -1,0 +1,28 @@
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/employees" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Employees</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link" routerLink="/timesheets" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Timesheets</a>
+        <!-- <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">New Timesheet</a></li>
+                <li><a class="dropdown-item" href="#">View All</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul> -->
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/accounting" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accounting</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/immigration" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Immigration</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/contactus" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+    </li>
+</ul>

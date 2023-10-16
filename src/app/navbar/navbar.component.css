@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    background-color: rgb(3, 53, 53);
+    
+}
+.nav-item {
+    padding: 5px;
+    
+}
+.nav-item:hover {
+    background-color: rgb(3, 102, 102);
+    
+}
+.nav-item a {
+    color: #fff;
+}
+.active {
+    background-color: rgb(10 164 164); 
+    color: #111;
+  }

@@ -1,0 +1,8 @@
+.container-body-section{
+    display: flex;
+}
+.content {
+    flex-grow: 1;
+}
+
+

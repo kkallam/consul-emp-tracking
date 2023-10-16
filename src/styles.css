@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.datatable-pager .pager .pages a{
+    padding: 5px !important;
+}
+.datatable-header-cell-template-wrap, .datatable-footer {
+    background-color: rgb(23, 71, 85) !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px;
+}
+.datatable-body {
+    padding: 5px;
+}
+.datatable-row-wrapper {
+    margin-bottom: 5px;
+}
+.datatable-row-wrapper:nth-child(even) {
+    background-color: #c2c2c2 !important;
+}
+.datatable-row-wrapper:nth-child(odd) {
+    background-color: #fff;
+}
+.datatable-footer {
+    padding: 0 10px !important;
+}
+.datatable-footer .pager .pages a{
+    color: #fff !important;
+}
