@@ -1,45 +1,93 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, computed, signal } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-interface IEmployeees {
-  id: number,
-  fullname : string,
-  email : string,
-  phone : number,
-  username: string,
-  password: string,
-  role : string
-}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApisService {
+
+  readonly JSONUrl = "http://localhost:4000/employees";
+  private employeesDataSource = new BehaviorSubject(null);
+  getEmployeeData = this.employeesDataSource.asObservable();
 
   constructor(private _http: HttpClient) { }
 
-  getAllEmployeesInfo(url: string): Observable<any> {
-     return this._http.get(url);
+  // setting employees data as global 
+  setEmployeeData(passedData: any) {
+    this.employeesDataSource.next(passedData);
   }
 
-  getAnEmployeeInfo(url:string, id: any): Observable<any> {
-    return this._http.get(`${url}/${id}`);
+
+  // ALL APIS Methods are here
+  getAllEmployeesInfo() {
+    return this._http.get(this.JSONUrl);
+  }
+  addANewEmployee(data: any) {
+    return this._http.post(this.JSONUrl, data);
   }
 
-  addANewEmployee(url: any, data: any): Observable<any> {
-    return this._http.post(url, data)
-  }
+}
 
-  updateAnEmployeeInfo(url: any, id:any, data:any): Observable<any> {
-    return this._http.put(`${url}/${id}`, data) ;
-  }
+// getAllEmployeesInfo(url: string): Observable<IEmployeees[]> {
+//   return this._http.get<IEmployeees[]>(url).pipe(tap((employees: IEmployeees[]) => {
+//     this.employees.next(employees);
+//   })
+//   );
+// }
+// getAnEmployeeInfo(url: string, id: any): Observable<IEmployeees[]> {
+//   return this._http.get<IEmployeees[]>(`${url}/${id}`).pipe(tap((employees: IEmployeees[]) => {
+//     this.employees.next(employees);
+//   })
+//   );
+// }
+// addANewEmployee(url: any, data: any): Observable<IEmployeees> {
+//   return this._http.post<IEmployeees>(url, data).pipe(
+//     tap((newEmployee: IEmployeees) => {
+//       const updatedList = [...this.employees.value, newEmployee];
+//       this.employees.next(updatedList);
+//     })
+//   );
+// }
+// updateAnEmployeeInfo(url: any, id: any, data: any): Observable<IEmployeees> {
+//   return this._http.put<IEmployeees>(`${url}/${id}`, data).pipe(
+//     tap((newEmployee: IEmployeees) => {
+//       const updatedList = [...this.employees.value, newEmployee];
+//       this.employees.next(updatedList);
+//     })
+//   );
+// }
 
-  deleteAnEmployeeInfo(url:any, id:any): Observable<any> {
-    return this._http.delete(`${url}/${id}`);
-  }
-  deleteAll(url: any):Observable<any>{
-    return this._http.delete(url);
-  }
+// deleteAnEmployeeInfo(url: any, id: any): Observable<IEmployeees> {
+//   return this._http.delete<IEmployeees>(`${url}/${id}`).pipe(
+//     tap((newEmployee: IEmployeees) => {
+//       const updatedList = [...this.employees.value, newEmployee];
+//       this.employees.next(updatedList);
+//     })
+//   );
+// }
+// deleteAll(url: any): Observable<IEmployeees> {
+//   return this._http.delete<IEmployeees>(url).pipe(
+//     tap((newEmployee: IEmployeees) => {
+//       const updatedList = [...this.employees.value, newEmployee];
+//       this.employees.next(updatedList);
+//     })
+//   );
+// }
 
+
+export interface IEmployeees {
+  id: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  phone: string,
+  userName: string,
+  title: string,
+  joiningDate: string,
+  leavingDate: string,
+  projectStatus: string,
+  visaStatus: string
 }

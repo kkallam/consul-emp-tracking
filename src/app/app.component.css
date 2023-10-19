@@ -1,8 +1,12 @@
-.container-body-section{
+.header-section, .footer-section {
+    width: 100%;
+    position: relative;
+}
+.body-section{
     display: flex;
+    width: 100%;
 }
-.content {
-    flex-grow: 1;
-}
+
+
 
 

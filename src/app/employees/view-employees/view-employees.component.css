@@ -1,16 +1,15 @@
-.table {
-    width: 100%;
-    padding-bottom: 20px;
-}
 .employees-list {
     margin-top: 15px;
     color: rgb(16, 16, 15);
-    
+    width: 100%;
+    padding:10px 10px 50px 10px;
 }
-.ngx-datatable {
-    color: #3b3838;
+.employees-list .table {
+    width: 100%;
+    margin-bottom: 20px;
 }
-.table thead th{
+
+.employees-list .table thead th{
     background-color: rgb(23, 71, 85) !important;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
@@ -18,6 +17,6 @@
     padding: 5px 10px;
     cursor: pointer;
 }
-.table thead th:nth-last-child(){
+.employees-list .table thead th:nth-last-child(){
     text-align: center;
 }

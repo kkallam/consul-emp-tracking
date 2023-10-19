@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ApisService } from 'src/app/apis.service';
+import { Component, OnInit } from '@angular/core';
+import { ApisService, IEmployeees } from 'src/app/apis.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -8,13 +8,54 @@ import { ApisService } from 'src/app/apis.service';
 })
 export class AddEmployeeComponent {
   payload: any;
-  constructor(private _api:ApisService){}
+  empId: string = "";
+  constructor(private _apiService: ApisService) { }
+  newEmployeeData: IEmployeees = {
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    userName: "",
+    title: "",
+    joiningDate: "",
+    leavingDate: "",
+    projectStatus: "",
+    visaStatus: ""
+  }
+  employeesList: any = [];
+  //newEmployeeData: IEmployeees[] = [];
 
-  addEmployee(){
-    console.log("Adding a new employee")
-    this._api.addANewEmployee("http://localhost:3000/employees", this.payload).subscribe((data)=> {
-      console.log("Added Successsfully!");
+  ngOnInit(): void {
+    console.log("newEmployeeData");
+    console.log(this.newEmployeeData);
+    this._apiService.getEmployeeData.subscribe( (employee)=> {
+      this.employeesList = employee;
+      console.log(this.employeesList);
     })
+    
+  }
+
+  checkEmployeeExists() {
+
+  }
+
+  fetchEmployees() {
+    this._apiService.getAllEmployeesInfo().subscribe((employees) => {
+      this._apiService.setEmployeeData(employees);
+    })
+  }
+  addEmployee() {
+    let emplId = Math.floor(Math.random() * (9900 - 1000 + 1)) + 1000;
+    this.empId = emplId.toString();
+    this.empId = "Emp" + this.empId;
+    this.newEmployeeData.id = this.empId;
+
+    this._apiService.addANewEmployee(this.newEmployeeData).subscribe((data) => {
+      console.log("Added Successsfully!");
+      
+    })
+
   }
 
 }

@@ -1,0 +1,122 @@
+<div class="employees-list">
+    <h4>All Employees Information</h4>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <!-- <th (click)="sort('id')">Employee ID &nbsp;
+                    <span *ngIf="sortColumn === 'id' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'id' && sortOrder === -1">▼</span> -->
+                <!-- <th>Employee ID &nbsp;</th> -->
+                <!-- <th (click)="sort('firstName')"> First Name &nbsp;
+                    <span *ngIf="sortColumn === 'firstName' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'firstName' && sortOrder === -1">▼</span> -->
+                <th> First Name &nbsp;</th>
+                <!-- <th (click)="sort('lastName')"> Last Name &nbsp;
+                    <span *ngIf="sortColumn === 'lastName' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'lastName' && sortOrder === -1">▼</span> -->
+                <th> Last Name &nbsp;</th>
+                <!-- <th (click)="sort('userName')"> User Name &nbsp;
+                    <span *ngIf="sortColumn === 'userName' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'userName' && sortOrder === -1">▼</span> -->
+                <!-- <th> User Name &nbsp;</th> -->
+                <!-- <th (click)="sort('email')">Email &nbsp;
+                    <span *ngIf="sortColumn === 'email' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'email' && sortOrder === -1">▼</span> -->
+                <th>Email &nbsp;</th>
+                <!-- <th (click)="sort('phone')">Phone number &nbsp;
+                    <span *ngIf="sortColumn === 'phone' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'phone' && sortOrder === -1">▼</span> -->
+
+                <th>Phone number &nbsp;</th>
+                <!-- <th (click)="sort('title')">Title &nbsp;
+                    <span *ngIf="sortColumn === 'title' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'title' && sortOrder === -1">▼</span> -->
+                <th>Title &nbsp;</th>
+                <!-- <th (click)="sort('joiningDate')">Joining Date &nbsp;
+                    <span *ngIf="sortColumn === 'joiningDate' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'joiningDate' && sortOrder === -1">▼</span> -->
+                <!-- <th>Joining Date &nbsp;</th>
+                <th>Leaving Date</th> -->
+                <!-- <th (click)="sort('projectStatus')">Project Status &nbsp;
+                    <span *ngIf="sortColumn === 'projectStatus' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'projectStatus' && sortOrder === -1">▼</span> -->
+                <th>Project Status &nbsp;</th>
+                <!-- <th (click)="sort('visaStatus')">Visa Status &nbsp;
+                    <span *ngIf="sortColumn === 'visaStatus' && sortOrder === 1">▲</span>
+                    <span *ngIf="sortColumn === 'visaStatus' && sortOrder === -1">▼</span> -->
+                <th>Visa Status &nbsp; </th>
+                <th>Actions &nbsp;</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employeesList">
+                <td>{{emp.firstName}}</td>
+                <td>{{emp.lastName}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.phone}}</td>
+                <td>{{emp.title}}</td>
+                <!-- <td>{{emp.joiningDate}}</td>
+                <td>{{emp.leavingDate}}</td> -->
+                <td>{{emp.projectStatus}}</td>
+                <td>{{emp.visaStatus}}</td>
+
+                <td>
+                    <button (click)="editEmployeeInfo(emp)" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#employeeModal">Edit</button> &nbsp;
+                    <button (click)="deleteEmployeeInfo(emp)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="modal modal-lg" tabindex="-1" role="dialog" *ngIf="isModalOpen" id="editEmployeeModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Employee Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-3">
+                    <label class="col-md-2">First Name:</label>
+                    <input [(ngModel)]="employeesList.firstName" class="col-md-3" type="text" />
+                    <label class="col-md-2">Last Name:</label>
+                    <input [(ngModel)]="employeesList.lastName" class="col-md-3" type="text" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-md-2">Email: </label>
+                    <input [(ngModel)]="employeesList.email" class="col-md-3" type="text" />
+                    <label class="col-md-2">Phone:</label>
+                    <input [(ngModel)]="employeesList.phone" class="col-md-3" type="text" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-md-2">User Name:</label>
+                    <input [(ngModel)]="employeesList.userName" class="col-md-3" type="text" />
+                    <label class="col-md-2">Title:</label>
+                    <input [(ngModel)]="employeesList.title" class="col-md-3" type="text" />
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-2">Joining Date:</label>
+                    <input [(ngModel)]="employeesList.joiningDate" class="col-md-3" type="text" />
+                    <label class="col-md-2">Project Status:</label>
+                    <input [(ngModel)]="employeesList.projectStatus" class="col-md-3" type="text" />
+                </div>
+                <div class="row mb-3">
+                    <label class="col-md-2">Visa Status:</label>
+                    <input [(ngModel)]="employeesList.visaStatus" class="col-md-3" type="text" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
